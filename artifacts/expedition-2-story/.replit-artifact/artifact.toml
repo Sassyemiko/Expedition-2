@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/expedition-2-story/"
+title = "Expedition 2 — Our Story"
+version = "1.0.0"
+id = "artifacts/expedition-2-story"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/expedition-2-story/" ]
+localPort = 22934
+
+[services.development]
+run = "pnpm --filter @workspace/expedition-2-story run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/expedition-2-story", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/expedition-2-story/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22934"
+BASE_PATH = "/expedition-2-story/"
