@@ -34,7 +34,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 grid grid-cols-3 items-center">
           <div className="flex items-center gap-2">
-            <Anchor className="w-6 h-6 text-primary" />
+            <img src="public/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
             <span className="font-serif font-bold text-xl tracking-wider text-foreground">
               EXPEDITION<span className="text-primary">2</span>
             </span>
@@ -462,7 +462,7 @@ const TrustAndCrew = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="bg-background border border-border/50 p-6 group hover:border-primary/50 transition-colors">
           <div className="aspect-[4/3] w-full overflow-hidden mb-6 bg-muted">
-            <img src="/images/pilot.jpg" alt="Chief Pilot" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/yuki.jpg" alt="Chief Pilot" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="text-sm text-primary uppercase tracking-widest mb-1">Chief Pilot</div>
           <h3 className="text-2xl font-serif mb-3">Elena Rostova</h3>
@@ -471,7 +471,7 @@ const TrustAndCrew = () => (
 
         <div className="bg-background border border-border/50 p-6 group hover:border-primary/50 transition-colors">
           <div className="aspect-[4/3] w-full overflow-hidden mb-6 bg-muted">
-            <img src="/images/eco.jpg" alt="Lead Biologist" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
+            <img src="/images/ingrid.jpg" alt="Lead Biologist" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
           </div>
           <div className="text-sm text-primary uppercase tracking-widest mb-1">Lead Biologist</div>
           <h3 className="text-2xl font-serif mb-3">Dr. Aris Thorne</h3>
@@ -1118,7 +1118,7 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
-          <Anchor className="w-5 h-5 text-primary" />
+          <img src="public/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
           <span className="font-serif font-bold tracking-wider text-muted-foreground">
             EXPEDITION<span className="text-primary">2</span>
           </span>
