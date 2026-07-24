@@ -34,7 +34,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 grid grid-cols-3 items-center">
           <div className="flex items-center gap-2">
-            <img src="public/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
+            <img src="/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
             <span className="font-serif font-bold text-xl tracking-wider text-foreground">
               EXPEDITION<span className="text-primary">2</span>
             </span>
@@ -1118,7 +1118,7 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
-          <img src="public/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
+          <img src="/images/logo.png" alt="Expedition 2" className="h-6 w-auto" />
           <span className="font-serif font-bold tracking-wider text-muted-foreground">
             EXPEDITION<span className="text-primary">2</span>
           </span>
