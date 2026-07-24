@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Expedition 2"
+version = "1.0.0"
+id = "artifacts/expedition-2"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24316
+
+[services.development]
+run = "pnpm --filter @workspace/expedition-2 run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/expedition-2", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/expedition-2/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24316"
+BASE_PATH = "/"
