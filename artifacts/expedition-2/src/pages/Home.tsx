@@ -28,7 +28,8 @@ const Navbar = () => {
         scrolled ? "bg-background/80 backdrop-blur-md border-border/50 py-4" : "bg-transparent border-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-6 grid grid-cols-3 items-center">
+        {/* Left: Logo */}
         <div className="flex items-center gap-2">
           <Anchor className="w-6 h-6 text-primary" />
           <span className="font-serif font-bold text-xl tracking-wider text-foreground">
@@ -36,8 +37,8 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Centre: Nav links */}
+        <nav className="hidden md:flex items-center justify-center gap-8">
           {links.map((link) => (
             <a
               key={link}
@@ -47,10 +48,14 @@ const Navbar = () => {
               {link}
             </a>
           ))}
+        </nav>
+
+        {/* Right: CTA */}
+        <div className="hidden md:flex justify-end">
           <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none" asChild>
             <a href="#booking" data-testid="link-request-briefing">Request Briefing</a>
           </Button>
-        </nav>
+        </div>
       </div>
     </header>
     
