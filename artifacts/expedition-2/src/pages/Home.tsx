@@ -789,9 +789,16 @@ const cabinStats = [
   { label: "Viewport Diameter", value: "600mm", icon: Eye },
 ];
 
+const cabinPhotos = [
+  { src: "/images/cabin-lounge.png", label: "Observation Lounge", caption: "Dual panoramic viewports with premium seating — watch schools of deep-sea fish from your sofa" },
+  { src: "/images/cabin-suite.png", label: "Private Suite", caption: "King berth with 600mm viewport — fall asleep to the midnight zone" },
+  { src: "/images/cabin-dining.png", label: "Dining & Social Deck", caption: "10-seat dining table, curved lounge, and spiral access stair to the bridge" },
+];
+
 const ConfidenceBeforeBooking = () => {
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [activeView, setActiveView] = useState<"cabin" | "checklist">("cabin");
+  const [activePhoto, setActivePhoto] = useState(0);
 
   const toggle = (id: string) => {
     const next = new Set(checked);
@@ -847,31 +854,49 @@ const ConfidenceBeforeBooking = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             >
-              {/* Simulated panoramic cabin view */}
-              <div className="relative bg-card border border-border/30 overflow-hidden aspect-[16/9]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#071020]" />
-                {/* Simulated interior elements */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Porthole rings */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full border-4 border-primary/30 shadow-[0_0_60px_rgba(0,180,255,0.15)]" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-primary/20" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-primary/5 flex items-center justify-center">
-                      <Eye className="w-8 h-8 text-primary/40" />
-                    </div>
-                    {/* Control panel dots */}
-                    <div className="absolute bottom-6 left-6 flex gap-2">
-                      {[...Array(6)].map((_, i) => <div key={i} className="w-2 h-2 rounded-full bg-primary/40 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />)}
-                    </div>
-                    {/* Status text */}
-                    <div className="absolute top-6 right-6 text-right">
-                      <div className="text-xs font-mono text-primary/60 mb-1">E2-LV001</div>
-                      <div className="text-xs font-mono text-muted-foreground/60">INTERIOR VIEW</div>
-                    </div>
+              {/* Real cabin photo gallery */}
+              <div className="flex flex-col gap-3">
+                {/* Main photo */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-card border border-border/30">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={activePhoto}
+                      src={cabinPhotos[activePhoto].src}
+                      alt={cabinPhotos[activePhoto].label}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.45 }}
+                      className="w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
+                  {/* Caption overlay */}
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5">
+                    <div className="text-xs uppercase tracking-widest text-primary mb-1">{cabinPhotos[activePhoto].label}</div>
+                    <p className="text-sm text-white/80">{cabinPhotos[activePhoto].caption}</p>
+                  </div>
+                  {/* Counter */}
+                  <div className="absolute top-4 right-4 text-xs font-mono text-white/50 bg-black/40 px-2 py-1 rounded-sm">
+                    {activePhoto + 1} / {cabinPhotos.length}
                   </div>
                 </div>
-                <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-background/80 to-transparent">
-                  <p className="text-xs text-muted-foreground text-center">Interactive 360° cabin tour available at the Expedition 2 facility prior to departure.</p>
+                {/* Thumbnails */}
+                <div className="grid grid-cols-3 gap-2">
+                  {cabinPhotos.map((photo, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActivePhoto(i)}
+                      className={`relative overflow-hidden aspect-video border-2 transition-all ${
+                        activePhoto === i ? "border-primary" : "border-border/20 hover:border-primary/40"
+                      }`}
+                    >
+                      <img src={photo.src} alt={photo.label} className="w-full h-full object-cover" />
+                      {activePhoto !== i && <div className="absolute inset-0 bg-black/40" />}
+                      <div className="absolute bottom-0 inset-x-0 bg-black/60 px-1.5 py-1">
+                        <p className="text-[10px] text-white/80 truncate">{photo.label}</p>
+                      </div>
+                    </button>
+                  ))}
                 </div>
               </div>
 
