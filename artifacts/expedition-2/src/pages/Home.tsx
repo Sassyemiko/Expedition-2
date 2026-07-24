@@ -474,8 +474,8 @@ const TrustAndCrew = () => (
             <img src="/images/ingrid.jpg" alt="Lead Biologist" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
           </div>
           <div className="text-sm text-primary uppercase tracking-widest mb-1">Lead Biologist</div>
-          <h3 className="text-2xl font-serif mb-3">Dr. Aris Thorne</h3>
-          <p className="text-muted-foreground text-sm">World-renowned expert in hadal-zone extremophiles. Dr. Thorne guides the scientific mission of every dive, identifying species never before seen.</p>
+          <h3 className="text-2xl font-serif mb-3">Dr. Ingrid Halvorsen</h3>
+          <p className="text-muted-foreground text-sm">World-renowned expert in hadal-zone extremophiles. Dr. Halvorsen guides the scientific mission of every dive, identifying species never before seen.</p>
         </div>
       </div>
     </div>
