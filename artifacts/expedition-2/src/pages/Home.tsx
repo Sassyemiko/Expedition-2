@@ -1003,7 +1003,7 @@ const WhatToExpect = () => (
           { step: "03", title: "The 12-Hour Dive", desc: "4 hours down. 4 hours on the bottom exploring. 4 hours ascent. A grueling but transformative day." },
         ].map((item) => (
           <div key={item.step} className="p-8 border border-border/30 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 text-6xl font-serif text-muted-foreground/10 group-hover:text-primary/10 transition-colors">{item.step}</div>
+            <div className="absolute top-0 right-0 p-4 text-6xl font-serif text-muted-foreground/10 group-hover:text-primary/70 transition-colors duration-300">{item.step}</div>
             <h3 className="text-xl font-serif mb-4 relative z-10">{item.title}</h3>
             <p className="text-muted-foreground text-sm relative z-10">{item.desc}</p>
           </div>
